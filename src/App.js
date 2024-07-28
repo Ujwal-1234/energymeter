@@ -11,6 +11,7 @@ import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
 import ProtectedRoute from './ProtectedRoute';
 import LogoutButton from './components/LogoutButton';
+import MqttComponent from './components/MqttComponent';
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -88,6 +89,7 @@ function App() {
                 <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
                 <Route path="/bill" element={<ProtectedRoute><Bill /></ProtectedRoute>} />
                 <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+                {/* <Route path="/mqttroute" element={<MqttComponent />} /> */}
                 <Route path="*" element={<Navigate to="/" />} />
               </>
             ) : (
