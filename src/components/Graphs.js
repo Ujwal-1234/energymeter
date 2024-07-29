@@ -6,8 +6,12 @@ const Graphs = () => {
   let[s,setS]=useState("temperature")
   let [datepick,setDatepick]=useState("");
   let [datepick1,setDatepick1]=useState("");
-  let[graph,setGraph]=useState(true);
+  let[graph,setGraph]=useState(false);
   const [from, setFrom] = useState("")
+  const chartData = {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+    values: [65, 59, 80, 81, 56, 55, 40],
+  };
   const [to, setTo] = useState("")
   let datepicker=()=>{
     // console.log(from);
@@ -18,8 +22,8 @@ const Graphs = () => {
   return (
     <>
       <div className='flex h-full flex-wrap'>
-        <div className='lg:h-full p-1 w-full lg:w-5/6 lg:p-7'>{graph?<ChartJS from={datepick} to={datepick1} data1={s}/>:<BarChart from={datepick} to={datepick1} data1={s}/>}</div>
-        <div className='lg:w-1/6 w-full lg:h-full flex flex-col justify-center items-center gap-5 py-10 bg-slate-400 bg-opacity-20'>
+        <div className='lg:h-full p-1 w-full lg:w-5/6 lg:p-7'><BarChart data={chartData}/></div>
+        {/* <div className='lg:w-1/6 w-full lg:h-full flex flex-col justify-center items-center gap-5 py-10 bg-slate-400 bg-opacity-20'>
         <div className=" rounded-md p-2 bg-slate-300 bg-opacity-40 w-full flex items-center justify-center flex-wrap  ">
           <table cellPadding={10} width={"100%"}>
             <tr>
@@ -44,7 +48,7 @@ const Graphs = () => {
             <button className="bg-nice-blue rounded-md hover:bg-opacity-25 h-12 w-28 m-2 text-white " onClick={()=>{setS("tankpressure")}}>Displacement Sensor</button>
             <button className="bg-nice-blue rounded-md hover:bg-opacity-25 h-12 w-28 m-2 text-white "onClick={()=>{setGraph(!graph)}}>{graph?"Bar Graph":"Line Graph" }</button>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   )

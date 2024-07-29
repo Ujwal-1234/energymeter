@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../AuthContext';
 import { FiLogIn } from 'react-icons/fi';
+import { setAuthToken } from '../service/apiservice';
 
 const SignIn = () => {
   const [username, setUsername] = useState('');
