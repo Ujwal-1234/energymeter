@@ -12,6 +12,8 @@ import SignUp from './components/SignUp';
 import ProtectedRoute from './ProtectedRoute';
 import LogoutButton from './components/LogoutButton';
 import MqttComponent from './components/MqttComponent';
+import Admin from './components/Admin';
+import { RiAdminLine } from "react-icons/ri";
 
 function App() {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -74,6 +76,15 @@ function App() {
                       About
                     </Link>
                   </li>
+                  <li>
+                    <Link
+                      to="/admin"
+                      className="flex items-center p-2 hover:bg-gray-300 rounded-lg"
+                    >
+                      <RiAdminLine className="mr-2" />
+                      Admin
+                    </Link>
+                  </li>
                 </ul>
               </nav>
               <div className="invisible lg:visible w-full bottom-0 p-2">
@@ -83,13 +94,14 @@ function App() {
           </>
         )}
         {/* Content */}
-        <div className="flex-grow">
+        <div className="flex-grow md:w-5/6">
           <Routes>
             {isAuth ? (
               <>
                 <Route path="/" element={<ProtectedRoute><Home /></ProtectedRoute>} />
                 <Route path="/bill" element={<ProtectedRoute><Bill /></ProtectedRoute>} />
                 <Route path="/about" element={<ProtectedRoute><About /></ProtectedRoute>} />
+                <Route path="/admin" element={<ProtectedRoute><Admin /></ProtectedRoute>} />
                 {/* <Route path="/mqttroute" element={<MqttComponent />} /> */}
                 <Route path="*" element={<Navigate to="/" />} />
               </>
@@ -106,5 +118,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;

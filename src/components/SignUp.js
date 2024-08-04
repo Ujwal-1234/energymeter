@@ -10,10 +10,10 @@ const SignUp = () => {
 
   const handleSignUp = async (e) => {
     e.preventDefault();
-    const response = await fetch('/api/signup', {
+    const response = await fetch('http://localhost:3000/api/auth/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ username, password })
+      body: JSON.stringify({email, phone, username, password })
     });
     if (response.ok) {
       alert('Signup successful');
@@ -44,7 +44,7 @@ const SignUp = () => {
         <input
             type="text"
             value={email}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             className="mb-4 p-2 w-full border rounded"
           />          

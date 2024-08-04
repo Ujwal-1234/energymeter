@@ -13,6 +13,11 @@
   }
 }
 
+.expandable-options .options {
+  transition: max-height 0.3s ease-in-out;
+}
+
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
